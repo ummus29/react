@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.selamlama{
+font-size:40px;
+font-weight:bold;
+text-align:center;
+}
+
+
+.selamlama span{
+color:green;
+}
+
+.sayac-card{
+display: flex;
+flex-direction: column;
+gap: 30;
+align-items: center;
+}
+
+.sayac-label{
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.sayac-deger.pozitif{
+color: green;
+}
+
+.sayac-deger.negatif{
+  color: orange;
+}
+
+.butonlar{
+display: flex;
+gap: 8px;
+width: 100px;
+}
+
+.btn{
+flex: 1;
+border-radius: 8px;
+font-weight: bold;
+cursor: pointer;
+padding: 10px;
+width: 100%;
+font-size: 18px;
+
+
+}
+
+.btn.artir{
+  color:green;
+  border-color: green;
+}
+
+.btn.sıfırla{
+  color:gray;
+  border-color: gray;
+}
+
+.btn.azalt{
+  color: orange;
+  border-color: orange;
+}
+
+
+.altbilgi{
+  color:black;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+
+
+}

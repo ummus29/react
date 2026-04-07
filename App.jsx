@@ -1,37 +1,49 @@
 import { useState } from 'react'
+import reactLogo from './assets/react.svg'
 import './App.css'
- 
-function Profil(){
-const [isim,setIsim]=useState(``);
-const[mail,setMail]=useState(``);
+
+function SifreUretici(){
+  const[uzunluk,setUzunluk]=useState(10);
+const[sifre,setSifre]=useState(``);
+
+const uret = () =>{
+const torba="AaBbCcÇçDdEeFfGgĞğHhIıİiJjKkLlMmNnOoÖöPpRrSsŞşTtUuÜüVvYyZz0123456789";
+let sonuc="";
+for(let i=0;  i<uzunluk; i++){
+  const rastgeleYer= Math.floor(Math.random()* torba.length);
+  sonuc+= torba.charAt(rastgeleYer);
+}
+
+setSifre(sonuc);
+
+
+};
 return(
-<div className='profil-card'>
-<h2>Profil Düzenleme</h2>
-<div className='input'>
-<label>İsim:</label>
-<input value={isim}
-onChange={(e)=>setIsim(e.target.value)}
-placeholder='Adınızı girin'/>
+<div className='sifre-kart'>
+<h1>Şifre Üretici</h1>
+<div className='sifre-ekrani'>
+  {sifre||"*****"}
+</div>
+<div style={{marginBottom:`20px`}}>
+  <input
+  type="number"
+  value={uzunluk}
+  onChange={(e)=>setUzunluk(e.target.value)}
+  >
+  </input>
+<span>karakter</span>
+
+</div>
+
+<button onClick={uret}>Yeni Şifre Üret</button>
+
+
 </div>
 
 
-<div className='input'>
-<label>Mail:</label>
-<input value={mail}
-onChange={(e)=>setMail(e.target.value)}
-placeholder='Mail girin'/>
 
-</div>
-
-
-<div className='onizleme'>
-  <h3>Ön izleme</h3>
-  <p><strong>İSİM:</strong>{isim  || `(bos)`}</p>
-  <p><strong>Mail:</strong>{mail|| `(bos)`}</p>
-</div>
-</div>
 );
 
 }
 
-export default Profil;
+export default SifreUretici;

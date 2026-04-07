@@ -1,63 +1,37 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
-
-function Isim(){
-    return(
-<h1 className='selamlama'> Merhaba <span>Çisem Yaşar</span></h1>
-
-
-
-
-
-    );
-}
-
-const AltBilgi=()=>{
+ 
+function Profil(){
+const [isim,setIsim]=useState(``);
+const[mail,setMail]=useState(``);
 return(
-<footer  className='altbilgi'>
-    <p>2026- Ön Yüz Yazılım Geliştirme</p>
-</footer>
+<div className='profil-card'>
+<h2>Profil Düzenleme</h2>
+<div className='input'>
+<label>İsim:</label>
+<input value={isim}
+onChange={(e)=>setIsim(e.target.value)}
+placeholder='Adınızı girin'/>
+</div>
 
 
+<div className='input'>
+<label>Mail:</label>
+<input value={mail}
+onChange={(e)=>setMail(e.target.value)}
+placeholder='Mail girin'/>
 
-);
-}
-
-function Sayac(){
-const[sayi,setSayi]=useState(0);
-return(
-<div className='sayac-card'>
-    <p className='sayac-label'>Sayaç</p>
-    <h1 className={`sayac-deger ${sayi>0 ?  `pozitif` : sayi<0 ?`negatif`:0} `}>{sayi}</h1>
+</div>
 
 
-
-<div className='butonlar'>   
-    <button className='btn artir' onClick={()=>setSayi(sayi+1)}>Artır</button>
-    <button className='btn artir' onClick={()=>setSayi(sayi-1)}>Azalt</button>
-    <button className='btn artir' onClick={()=>setSayi(0)}>Sıfır</button>
-
+<div className='onizleme'>
+  <h3>Ön izleme</h3>
+  <p><strong>İSİM:</strong>{isim  || `(bos)`}</p>
+  <p><strong>Mail:</strong>{mail|| `(bos)`}</p>
 </div>
 </div>
 );
 
-
-
 }
 
-
-function App(){
-return(
-<div className='app'>
-    <Isim></Isim>
-    <Sayac></Sayac>
-    <AltBilgi></AltBilgi>
-</div>
-
-
-);
-}
-export default App;
+export default Profil;
